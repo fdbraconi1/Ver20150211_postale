@@ -7,11 +7,12 @@
 /*
  * Restituisce la lunghezza della lista.
  */
-int size(intLinkedList list) {
+int size(intLinkedList list){
     int r=0;
-    
-    // TODO Implementa il corpo della funzione
-    
+    while(list!=NULL){
+        list=list->next;
+        r++;
+    }  
     return r;
 }
 
@@ -23,11 +24,17 @@ int size(intLinkedList list) {
  */
 intLinkedList insertAtBeginning(intLinkedList list, int newKey) {
     
-    // TODO Implementa il corpo della funzione
+    intLinkedList * nuovo;
     
-    return list;
+    nuovo=(intLinkedList *)malloc(sizeof(intLinkedList));
+    if(nuovo!=NULL)
+    {
+        nuovo->next=list;
+        list=nuovo;
+        nuovo->newKey=newKey;
+    }
+    return (list);
 }
-
 
 /*
  * Stampa tutti gli elementi della lista a schermo, in un'unica linea, 
@@ -38,10 +45,13 @@ intLinkedList insertAtBeginning(intLinkedList list, int newKey) {
  * 
  */
 void printList(intLinkedList list) {
+     
+    if(list=NULL){
+        return;
+    }
+    printf("%d ;",list->next);
+    printList(list->next);       
     
-    // TODO Implementa il corpo della funzione
-    
-    return;
 }
 
 
@@ -51,7 +61,7 @@ void printList(intLinkedList list) {
  */
 intLinkedList empty(intLinkedList list) {
     
-    // TODO Implementa il corpo della funzione
+    
     
     return NULL;
 }
